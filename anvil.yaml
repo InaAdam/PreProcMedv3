@@ -51,7 +51,7 @@ db_schema:
       type: media
     title: local_code
 startup: {type: form, module: Home_pkg.Home}
-name: Clone of PreProcMedv2
+name: PreProcMedv3
 startup_form: null
 native_deps: null
 correct_dependency_ids: {}
