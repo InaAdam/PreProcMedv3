@@ -1,0 +1,97 @@
+layout: {type: 'form:Main_Layout.Home_Layout'}
+is_package: true
+components_by_slot:
+  slot_1:
+  - name: card_1
+    properties: {role: card, col_widths: '{"KQUQMZ":45,"AKHHGE":45}'}
+    type: ColumnPanel
+    layout_properties: {}
+    components:
+    - name: label_1
+      properties: {text: Anonymization section, align: center, font_size: 20, background: 'theme:Secondary 500', foreground: 'theme:Gray 50'}
+      type: Label
+      layout_properties: {grid_position: 'XQWSUL,KXYAGG'}
+    - name: label_2
+      properties: {text: Select the folder with the original data., font_size: 15, underline: false, italic: false, role: null, background: 'theme:Primary 500', foreground: 'theme:White', align: center}
+      type: Label
+      layout_properties: {grid_position: 'KMVSBY,HXFONH'}
+    - name: label_6
+      properties:
+        text: "Note: The application expects a path that contains the structure: \n../patient/dir(zone)/types/dicom series,\nit will automatically determine if there's only one or multiple patients.\n"
+      type: Label
+      layout_properties: {grid_position: 'RJDGCP,FGZSTS'}
+    - name: text_box_original_path
+      properties: {placeholder: ../original_data_path}
+      type: TextBox
+      layout_properties: {grid_position: 'WVWEFG,KQUQMZ'}
+      event_bindings: {change: text_box_original_path_change}
+    - name: button_original_path
+      properties: {text: Select, role: secondary-color, align: full, visible: false}
+      type: Button
+      layout_properties: {grid_position: 'GXBREU,TTTZKZ'}
+      event_bindings: {click: button_original_path_click}
+    - name: label_3
+      properties: {text: Select the folder were anonymized data will be saved., font_size: 15, background: 'theme:Primary 500', foreground: 'theme:White', align: center, spacing_above: large}
+      type: Label
+      layout_properties: {grid_position: 'AQGPSE,MYVKQC'}
+    - name: text_box_anonym_path
+      properties: {placeholder: ../anonym_data_path}
+      type: TextBox
+      layout_properties: {grid_position: 'LNAJMP,AKHHGE'}
+      event_bindings: {change: text_box_anonym_path_change}
+    - name: button_anonym_path
+      properties: {text: select, role: secondary-color, align: full, visible: false}
+      type: Button
+      layout_properties: {grid_position: 'USCUJI,ZTHYDH'}
+      event_bindings: {click: button_anonym_path_click}
+    - name: label_7
+      properties:
+        text: |
+          Note: In the selected directory the processed data will be saved in the following structure:
+          ../anonym_data_path/current_date_time/type/patient/dicom/dicom_series
+      type: Label
+      layout_properties: {grid_position: 'CRIZBD,MNQFKL'}
+    - name: label_4
+      properties: {text: Select type, background: 'theme:Primary 500', foreground: 'theme:White', font_size: 15, align: center}
+      type: Label
+      layout_properties: {grid_position: 'WQFAPY,REZONT NZRAWQ,DPJQBX'}
+    - name: drop_down_type
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'WQFAPY,REZONT BORPBB,ZFJLZL'}
+    - name: label_5
+      properties: {text: Select year, background: 'theme:Primary 500', foreground: 'theme:White', align: center, font_size: 15}
+      type: Label
+      layout_properties: {grid_position: 'WQFAPY,VYFQWY XKPBMR,FPOWJX'}
+    - name: drop_down_year
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'WQFAPY,VYFQWY ZEYMOS,UYNMSV'}
+    - name: label_8
+      properties: {text: 'Note: If there will be selected more than one patient a background process will be launched since it requires more time.'}
+      type: Label
+      layout_properties: {grid_position: 'PRCBNK,WNNBQV'}
+    - name: button_anonymize
+      properties: {text: anonymize, role: secondary-color}
+      type: Button
+      layout_properties: {grid_position: 'PLGQCA,IDJCAR'}
+      event_bindings: {click: button_anonymize_click}
+    - name: label_track
+      properties: {visible: true}
+      type: Label
+      layout_properties: {grid_position: 'FELUUU,HPAOFI'}
+    - name: button_file_location
+      properties: {text: 'Open folder ', enabled: false, role: secondary-color, align: full, visible: true}
+      type: Button
+      layout_properties: {grid_position: 'GPENLV,ECENWD'}
+      event_bindings: {click: button_file_location_click}
+    - name: button_dcm2nii
+      properties: {text: DCM2Nii, role: secondary-color, enabled: false, align: full, visible: true}
+      type: Button
+      layout_properties: {grid_position: 'GPENLV,OZJQDQ'}
+      event_bindings: {click: button_dcm2nii_click}
+    - name: button_visual
+      properties: {text: Visualize, visible: true, role: secondary-color, align: full, enabled: false}
+      type: Button
+      layout_properties: {grid_position: 'GPENLV,AYBOAM'}
+      event_bindings: {click: button_visual_click}

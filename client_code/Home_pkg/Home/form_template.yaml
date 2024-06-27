@@ -1,0 +1,66 @@
+layout: {type: 'form:Main_Layout.Home_Layout'}
+is_package: true
+components_by_slot:
+  slot_1:
+  - name: card_1
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {}
+    components:
+    - name: label_1
+      properties:
+        text: |
+          Welcome to PreProcMed
+        italic: true
+        bold: false
+        align: center
+        font_size: 19
+        underline: false
+        background: theme:Secondary 500
+        foreground: theme:White
+      type: Label
+      layout_properties: {grid_position: 'MZSFON,EMHKIX'}
+    - name: rich_text_1
+      properties: {content: 'Before proceeding with any operations offered by this application check the  {button} and follow the steps there to set up a working and functional environment.'}
+      type: RichText
+      layout_properties: {grid_position: 'EZXHMQ,BNCFCA'}
+      components:
+      - name: link_documentation
+        properties: {text: Documentation, underline: true}
+        type: Link
+        layout_properties: {slot: button}
+        event_bindings: {click: link_documentation_click}
+    - name: label_2
+      properties: {text: '   Start processing medical images:', background: 'theme:Secondary 500', foreground: 'theme:White', align: center, font_size: 15}
+      type: Label
+      layout_properties: {grid_position: 'KZAUFO,QZRIVX'}
+    - name: rich_text_2
+      properties: {content: '1. {button}'}
+      type: RichText
+      layout_properties: {grid_position: 'GLSIFX,SMVEMG'}
+      components:
+      - name: link_anonym
+        properties: {text: Anonymization ->>, underline: true}
+        type: Link
+        layout_properties: {slot: button}
+        event_bindings: {click: link_anonym_click}
+    - name: rich_text_3
+      properties: {content: '2. {button}'}
+      type: RichText
+      layout_properties: {grid_position: 'XWHXKZ,WQMWZD'}
+      components:
+      - name: link_dcm2nii
+        properties: {text: Conversion Dicom to Nifti ->>, underline: true}
+        type: Link
+        layout_properties: {slot: button}
+        event_bindings: {click: link_dcm2nii_click}
+    - name: rich_text_4
+      properties: {content: '3. {button}'}
+      type: RichText
+      layout_properties: {grid_position: 'HRGOLT,VFYVHC'}
+      components:
+      - name: link_visual
+        properties: {text: Visualization or further processing in specialized application  ->>, underline: true}
+        type: Link
+        layout_properties: {slot: button}
+        event_bindings: {click: link_visual_click}
