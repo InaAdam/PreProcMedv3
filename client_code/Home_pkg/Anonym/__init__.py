@@ -63,5 +63,6 @@ class Anonym(AnonymTemplate):
     anvil.server.call('open_location',self.item['pass_path'])
 
   def button_dcm2nii_click(self, **event_args):
-    open_form('Home_pkg.Dcm2Nii', path = self.item['pass_path'])
+    print(self.item['pass_path'],"in anonymm")
+    open_form('Home_pkg.Dcm2Nii', file_path = self.item['pass_path'])
     

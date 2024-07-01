@@ -15,11 +15,7 @@ components_by_slot:
       properties: {placeholder: ./dicom_series_folder}
       type: TextBox
       layout_properties: {grid_position: 'UTDNJZ,CIYLCU'}
-    - name: button_select
-      properties: {text: select, visible: false}
-      type: Button
-      layout_properties: {grid_position: 'RGLTGT,LHIKIN'}
-      event_bindings: {click: button_select_click}
+      event_bindings: {change: text_box_dcm_path_change}
     - name: button_convert
       properties: {text: convert, role: secondary-color, visible: true}
       type: Button
@@ -38,3 +34,8 @@ components_by_slot:
       properties: {text: Visualize, role: secondary-color, enabled: false}
       type: Button
       layout_properties: {grid_position: 'WVIPDA,IQYNFA'}
+      event_bindings: {click: button_visualize_click}
+    - name: button_back
+      properties: {text: Back, enabled: false}
+      type: Button
+      layout_properties: {grid_position: 'WVIPDA,RTTCZY'}

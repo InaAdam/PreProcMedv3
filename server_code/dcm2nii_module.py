@@ -16,6 +16,7 @@ def nii2dcm(path):
   if path.rsplit('.',1)[-1] == 'dcm':
     nii_name = set_nii_name(path.rsplit("\\",2)[1],path.rsplit("\\",3)[1])
     anvil.server.call('access_path',[path.rsplit("\\",1)[0],path.rsplit("\\",2)[0]],['dcm2nii',nii_name])
+    path_nii = path.rsplit("\\",2)[0]
   else:
     dcm_list = anvil.server.call('access_path',[path+"\\**\\*.dcm"],['search_all'])
     upper_dcm_list = []
@@ -25,3 +26,5 @@ def nii2dcm(path):
     for dir in upper_dcm_list:
       nii_name = set_nii_name(dir.split('\\')[-1],dir.split('\\')[-2])
       anvil.server.call('access_path',[dir,dir.rsplit("\\",1)[0]],['dcm2nii',nii_name])
+      path_nii = dir.rsplit("\\",1)[0]
+  return path_nii
