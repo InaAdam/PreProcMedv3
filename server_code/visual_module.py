@@ -18,7 +18,8 @@ def open_mdicom(path):
 
 def open_tdslicer(path):
   tdslicer_app_link =  anvil.server.call('user_table_use',['get'],'tdslicer_path')
-  anvil.server.call('access_path',[path],['open_file_in_app',tdslicer_app_link])
+  dcms = anvil.server.call('access_path',[path],['directory_list'])
+  anvil.server.call('access_path',[path+"\\"+dcms[0]],['open_file_in_app',tdslicer_app_link])
 
 @anvil.server.callable
 def open_application(path, app):
