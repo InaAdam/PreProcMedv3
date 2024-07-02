@@ -100,7 +100,7 @@ components_by_slot:
       layout_properties: {grid_position: 'PLGQCA,IDJCAR'}
       event_bindings: {click: button_anonymize_click}
     - name: label_track
-      properties: {visible: true}
+      properties: {visible: true, align: center}
       type: Label
       layout_properties: {grid_position: 'FELUUU,HPAOFI'}
     - name: button_file_location

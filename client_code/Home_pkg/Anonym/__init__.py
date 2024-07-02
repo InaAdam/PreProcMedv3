@@ -38,11 +38,9 @@ class Anonym(AnonymTemplate):
       return
     self.label_track.visible = True
     if tp[0] == 'single':
-      self.label_track.text = f'''One dicom series was detected.\n
-                              Successfuly anonymized and saved in:\n{tp[1]}'''
+      self.label_track.text = f'''One dicom series was detected.\nSuccessfuly anonymized and saved in:\n{tp[1]}'''
     if tp[0] == 'multiple':
-      self.label_track.text = f'''Multiple dicom series were detected.\n
-                              Background process started. Data will be saved in:\n{tp[1]}'''
+      self.label_track.text = f'''Multiple dicom series were detected.\nBackground process started. Data will be saved in:\n{tp[1]}'''
     self.item['pass_path'] = tp[1]
     self.button_file_location.enabled = True
     self.button_visual.enabled = True
