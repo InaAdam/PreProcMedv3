@@ -44,36 +44,38 @@ def anonym(origin_path,anonym_path,type,year):
   if pacient_folder == 0:
     return 0
   time_now = f'{datetime.datetime.now():%Y_%m_%d-%H_%M_%S%z}'
+  headrs = [['Time','Original data path','Anonym data path']]
+  csv_name = origin_path+"\\"+time_now+".csv"
+  anvil.server.call('access_path',[csv_name],['write_csv',headrs])
   if pacient_folder[0] == 'single':
     dcm_serie = anvil.server.call('access_path',[pacient_folder[1]+'\\**\\'+'*_pd_tse_fs_[SAG][sag]*'],['search'])
     patient_anonym = 'P'+type[0]+year
     pat_anonym_path = anonym_path+'\\'+time_now+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
     anvil.server.call('access_path',[pat_anonym_path],['create'])
     anonym_dcm(dcm_serie,pat_anonym_path,patient_anonym)
-    csv_data = [[time_now,pacient_folder[1]+'\\**\\'+'*_pd_tse_fs_[SAG][sag]*',pat_anonym_path]]
-    #anvil.server.call('create_csv',csv_data,pacient_folder[1]+'\\'+time_now+'.csv')
+    csv_data = [[time_now,dcm_serie,pat_anonym_path]]
+    anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
     return [pacient_folder[0],pat_anonym_path]
   elif pacient_folder[0] == 'multiple':
     pacient_list = anvil.server.call('access_path',[pacient_folder[1]],['directory_list'])
-    anvil.server.launch_background_task('multiple_anonym',pacient_list,pacient_folder,anonym_path,time_now,year,type)
+    anvil.server.launch_background_task('multiple_anonym',pacient_list,pacient_folder,anonym_path,time_now,year,type,csv_name)
     return [pacient_folder[0],anonym_path+'\\'+time_now+'\\'+type]
     
 
 
 @anvil.server.background_task
-def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type):
+def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type,csv_name):
     idx = 1
-    csv_data = []
+    pacient_list = [p for p in pacient_list if ".csv" not in p]
     for pacient in pacient_list:
-      print(pacient)
       dcm_serie = anvil.server.call('access_path',[pacient_folder[1]+'\\'+pacient+'\\**\\'+'*_pd_tse_fs_[SAG][sag]*'],['search'])
       print(dcm_serie)
-      print(type)
       patient_anonym = 'P'+str(idx)+type[0]+year
+      print(f"Pacient {idx}/{len(pacient_list)}")
       pat_anonym_path = anonym_path+'\\'+time_now+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
-      print(pat_anonym_path)
       anvil.server.call('access_path',[pat_anonym_path],['create'])
       anonym_dcm(dcm_serie,pat_anonym_path,patient_anonym)
-      csv_data.append([time_now,pacient_folder[1]+'\\'+pacient+'\\**\\'+'*_pd_tse_fs_[SAG][sag]*',pat_anonym_path])
+      csv_data = [[time_now,dcm_serie,pat_anonym_path]]
+      anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
       idx = idx+1
     #anvil.server.call('create_csv',csv_data,pacient_folder[1]+'\\'+time_now+'.csv')

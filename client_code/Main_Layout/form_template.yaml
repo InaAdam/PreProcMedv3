@@ -21,9 +21,10 @@ components:
       type: Button
       event_bindings: {click: home_nav_btn_click}
     - name: doc_nav_btn
-      properties: {text: Documenation, role: secondary-color}
+      properties: {text: DocumenTation, role: secondary-color}
       type: Button
       event_bindings: {click: doc_nav_btn_click}
+      layout_properties: {}
     - name: user_nav_btn
       properties: {role: secondary-color, bold: true, align: center, spacing_above: large, icon: 'fa:user-md', icon_align: top, border: '', font_size: null, text: ''}
       type: Button
