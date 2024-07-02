@@ -6,8 +6,11 @@ import anvil.server
 
 def open_itk(path):
   itk_app_link = anvil.server.call('user_table_use',['get'],'itk_path')
-  dcms = anvil.server.call('access_path',[path],['directory_list'])
-  anvil.server.call('access_path',[path+"\\"+dcms[0]],['open_file_in_app',itk_app_link])
+  if path.split('.')[-1] == "gz":
+    anvil.server.call('access_path',[path],['open_file_in_app',itk_app_link])
+  else:
+    dcms = anvil.server.call('access_path',[path],['directory_list'])
+    anvil.server.call('access_path',[path+"\\"+dcms[0]],['open_file_in_app',itk_app_link])
 
 def open_mdicom(path):
   mdicom_app_link = anvil.server.call('user_table_use',['get'],'microdicom_path')
