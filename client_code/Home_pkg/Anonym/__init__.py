@@ -10,7 +10,7 @@ class Anonym(AnonymTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.layout.anonym_btn_menu.role = self.layout.btn_menu_active
-    self.drop_down_type.items = ['normal','menisc']
+    self.drop_down_type.items = ['normal','menisc','ACL','ACL+menisc','artrithis']
     self.drop_down_year.items = anvil.server.call('set_list_years')
 
   def button_anonymize_click(self, **event_args):
