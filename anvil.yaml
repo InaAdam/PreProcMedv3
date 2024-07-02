@@ -46,8 +46,8 @@ db_schema:
     - name: file
       admin_ui: {width: 200, order: 1}
       type: media
-    - name: ipy_notebook
-      admin_ui: {width: 200, order: 2}
+    - name: py_code
+      admin_ui: {order: 2, width: 200}
       type: media
     title: local_code
 startup: {type: form, module: Home_pkg.Home}
