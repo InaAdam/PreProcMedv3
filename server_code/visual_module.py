@@ -35,7 +35,6 @@ def open_application(path, app):
 def btn_app_active(app):
   current_user = anvil.users.get_user()['email']
   user_row = app_tables.users.get(email=current_user)
-  print(user_row[app])
   if user_row[app]:
     return True
   else:

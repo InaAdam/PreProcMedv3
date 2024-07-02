@@ -69,7 +69,6 @@ def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type,c
     pacient_list = [p for p in pacient_list if ".csv" not in p]
     for pacient in pacient_list:
       dcm_serie = anvil.server.call('access_path',[pacient_folder[1]+'\\'+pacient+'\\**\\'+'*_pd_tse_fs_[SAG][sag]*'],['search'])
-      print(dcm_serie)
       patient_anonym = 'P'+str(idx)+type[0]+year
       print(f"Pacient {idx}/{len(pacient_list)}")
       pat_anonym_path = anonym_path+'\\'+time_now+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
@@ -78,4 +77,3 @@ def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type,c
       csv_data = [[time_now,dcm_serie,pat_anonym_path]]
       anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
       idx = idx+1
-    #anvil.server.call('create_csv',csv_data,pacient_folder[1]+'\\'+time_now+'.csv')
