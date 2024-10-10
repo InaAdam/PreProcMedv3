@@ -1,46 +1,46 @@
-layout: {type: 'form:Main_Layout'}
+components_by_slot:
+  content:
+  - components:
+    - components:
+      - components:
+        - event_bindings: {click: home_btn_menu_click}
+          layout_properties: {grid_position: 'ASHXDI,JBRRNP'}
+          name: home_btn_menu
+          properties: {align: full, text: home}
+          type: Button
+        - event_bindings: {click: anonym_btn_menu_click}
+          layout_properties: {grid_position: 'KNYZBP,UBSBLR'}
+          name: anonym_btn_menu
+          properties: {align: full, text: Anonymization}
+          type: Button
+        - event_bindings: {click: dcm2nii_btn_menu_click}
+          layout_properties: {grid_position: 'DRCDSF,DQJPEX'}
+          name: dcm2nii_btn_menu
+          properties: {align: full, text: Dcm2nii}
+          type: Button
+        - event_bindings: {click: visual_btn_menu_click}
+          layout_properties: {grid_position: 'GEGUHS,BWKXPD'}
+          name: visual_btn_menu
+          properties: {align: full, text: Visualization}
+          type: Button
+        layout_properties: {grid_position: 'PNPSIC,SPMEYF'}
+        name: card_2
+        properties: {col_widths: '{"SLIEDE":15}', role: card}
+        type: ColumnPanel
+      name: column_panel_1
+      properties: {col_widths: '{"VSKYOC":45,"SPMEYF":15}'}
+      type: ColumnPanel
+    layout_properties: {}
+    name: linear_panel_1
+    properties: {}
+    type: LinearPanel
 is_package: true
+layout: {type: 'form:Main_Layout'}
+properties:
+- {default_binding_prop: true, default_value: primary-color, important: true, name: btn_menu_active, type: string}
+- {default_value: '''default''', important: true, name: btn_menu_inactive, type: string}
 slots:
   slot_1:
     index: 0
     set_layout_properties: {grid_position: 'PNPSIC,VSKYOC'}
-    target: {type: container, name: column_panel_1}
-components_by_slot:
-  content:
-  - name: linear_panel_1
-    properties: {}
-    type: LinearPanel
-    layout_properties: {}
-    components:
-    - name: column_panel_1
-      properties: {col_widths: '{"VSKYOC":45,"SPMEYF":15}'}
-      type: ColumnPanel
-      components:
-      - name: card_2
-        properties: {role: card, col_widths: '{"SLIEDE":15}'}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'PNPSIC,SPMEYF'}
-        components:
-        - name: home_btn_menu
-          properties: {text: home, align: full}
-          type: Button
-          layout_properties: {grid_position: 'ASHXDI,JBRRNP'}
-          event_bindings: {click: home_btn_menu_click}
-        - name: anonym_btn_menu
-          properties: {text: Anonymization, align: full}
-          type: Button
-          layout_properties: {grid_position: 'KNYZBP,UBSBLR'}
-          event_bindings: {click: anonym_btn_menu_click}
-        - name: dcm2nii_btn_menu
-          properties: {text: Dcm2nii, align: full}
-          type: Button
-          layout_properties: {grid_position: 'DRCDSF,DQJPEX'}
-          event_bindings: {click: dcm2nii_btn_menu_click}
-        - name: visual_btn_menu
-          properties: {text: Visualization, align: full}
-          type: Button
-          layout_properties: {grid_position: 'GEGUHS,BWKXPD'}
-          event_bindings: {click: visual_btn_menu_click}
-properties:
-- {name: btn_menu_active, type: string, default_value: primary-color, important: true, default_binding_prop: true}
-- {name: btn_menu_inactive, type: string, default_value: '''default''', important: true}
+    target: {name: column_panel_1, type: container}

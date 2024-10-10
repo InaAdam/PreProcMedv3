@@ -1,99 +1,99 @@
-layout: {type: 'form:Main_Layout'}
-is_package: true
 components_by_slot:
   content:
-  - name: card_1
-    properties: {role: card, col_widths: '{"PXZYAJ":10,"ADMVQU":50,"TKAUHG":10,"ZBVBAY":20,"DKOCWM":35,"ELWILX":15,"EVDCZS":12}'}
-    type: ColumnPanel
-    layout_properties: {}
-    components:
-    - name: label_2
-      properties: {text: User information, align: center, font_size: 15, background: 'theme:Secondary 500', foreground: 'theme:White'}
+  - components:
+    - layout_properties: {grid_position: 'QNEGVB,CIKMRV'}
+      name: label_2
+      properties: {align: center, background: 'theme:Secondary 500', font_size: 15, foreground: 'theme:White', text: User information}
       type: Label
-      layout_properties: {grid_position: 'QNEGVB,CIKMRV'}
-    - name: label_1
-      properties: {text: User email, font_size: 13}
+    - layout_properties: {grid_position: 'JFPQSA,PXZYAJ'}
+      name: label_1
+      properties: {font_size: 13, text: User email}
       type: Label
-      layout_properties: {grid_position: 'JFPQSA,PXZYAJ'}
-    - name: label_user_email
+    - layout_properties: {grid_position: 'JFPQSA,ADMVQU'}
+      name: label_user_email
       properties: {font_size: 13}
       type: Label
-      layout_properties: {grid_position: 'JFPQSA,ADMVQU'}
-    - name: button_pass_reset
-      properties: {text: REset Password, enabled: true, role: primary-color}
-      type: Button
+    - event_bindings: {click: button_pass_reset_click}
       layout_properties: {grid_position: 'JFPQSA,ZBVBAY'}
-      event_bindings: {click: button_pass_reset_click}
-    - name: label_4
-      properties: {text: Local app locations, align: center, font_size: 15, background: 'theme:Secondary 500', foreground: 'theme:White'}
+      name: button_pass_reset
+      properties: {enabled: true, role: primary-color, text: REset Password}
+      type: Button
+    - layout_properties: {grid_position: 'WCCDEF,DXIVRV'}
+      name: label_4
+      properties: {align: center, background: 'theme:Secondary 500', font_size: 15, foreground: 'theme:White', text: Local app locations}
       type: Label
-      layout_properties: {grid_position: 'WCCDEF,DXIVRV'}
-    - name: label_3
+    - layout_properties: {grid_position: 'HTUNMU,TKAUHG OBEJMR,KMKAKW'}
+      name: label_3
       properties: {text: ITK}
       type: Label
-      layout_properties: {grid_position: 'HTUNMU,TKAUHG OBEJMR,KMKAKW'}
-    - name: label_5
+    - layout_properties: {grid_position: 'HTUNMU,TKAUHG RYUTWM,TEWYLS'}
+      name: label_5
       properties: {text: MDicom}
       type: Label
-      layout_properties: {grid_position: 'HTUNMU,TKAUHG RYUTWM,TEWYLS'}
-    - name: label_6
+    - layout_properties: {grid_position: 'HTUNMU,TKAUHG VQFRJE,AHSQCS'}
+      name: label_6
       properties: {text: 3DSlicer}
       type: Label
-      layout_properties: {grid_position: 'HTUNMU,TKAUHG VQFRJE,AHSQCS'}
-    - name: text_box_itk_path
+    - layout_properties: {grid_position: 'HTUNMU,DKOCWM PBSENG,EASLOA'}
+      name: text_box_itk_path
       properties: {}
       type: TextBox
-      layout_properties: {grid_position: 'HTUNMU,DKOCWM PBSENG,EASLOA'}
-    - name: text_box_mdicom_path
+    - layout_properties: {grid_position: 'HTUNMU,DKOCWM YSBNIP,YNWDLF'}
+      name: text_box_mdicom_path
       properties: {}
       type: TextBox
-      layout_properties: {grid_position: 'HTUNMU,DKOCWM YSBNIP,YNWDLF'}
-    - name: text_box_tdslicer_path
+    - layout_properties: {grid_position: 'HTUNMU,DKOCWM KPEYJR,MWGJMF'}
+      name: text_box_tdslicer_path
       properties: {}
       type: TextBox
-      layout_properties: {grid_position: 'HTUNMU,DKOCWM KPEYJR,MWGJMF'}
-    - name: button_test_itk
-      properties: {text: TEST, role: secondary-color}
-      type: Button
+    - event_bindings: {click: button_test_itk_click}
       layout_properties: {grid_position: 'HTUNMU,EVDCZS WIXMWI,GLAIHV'}
-      event_bindings: {click: button_test_itk_click}
-    - name: button_test_mdicom
-      properties: {text: TEst, role: secondary-color}
+      name: button_test_itk
+      properties: {role: secondary-color, text: TEST}
       type: Button
+    - event_bindings: {click: button_test_mdicom_click}
       layout_properties: {grid_position: 'HTUNMU,EVDCZS BSWNIK,OXHJKP'}
-      event_bindings: {click: button_test_mdicom_click}
-    - name: button_test_tdslicer
-      properties: {text: test, role: secondary-color}
+      name: button_test_mdicom
+      properties: {role: secondary-color, text: TEst}
       type: Button
+    - event_bindings: {click: button_test_tdslicer_click}
       layout_properties: {grid_position: 'HTUNMU,EVDCZS ZRQLLZ,CHKCFO'}
-      event_bindings: {click: button_test_tdslicer_click}
-    - name: button_update_itk
-      properties: {text: Update, enabled: false, role: primary-color}
+      name: button_test_tdslicer
+      properties: {role: secondary-color, text: test}
       type: Button
+    - event_bindings: {click: button_update_itk_click}
       layout_properties: {grid_position: 'HTUNMU,ELWILX ARELSF,ZDFMKX'}
-      event_bindings: {click: button_update_itk_click}
-    - name: button_update_mdicom
-      properties: {text: Update, enabled: false, role: primary-color}
+      name: button_update_itk
+      properties: {enabled: false, role: primary-color, text: Update}
       type: Button
+    - event_bindings: {click: button_update_mdicom_click}
       layout_properties: {grid_position: 'HTUNMU,ELWILX SVZSCZ,FSTJOQ'}
-      event_bindings: {click: button_update_mdicom_click}
-    - name: button_update_tdslicer
-      properties: {text: Update, enabled: false, role: primary-color}
+      name: button_update_mdicom
+      properties: {enabled: false, role: primary-color, text: Update}
       type: Button
+    - event_bindings: {click: button_update_tdslicer_click}
       layout_properties: {grid_position: 'HTUNMU,ELWILX NRIBTY,TPRZCD'}
-      event_bindings: {click: button_update_tdslicer_click}
-    - name: button_select_itk
-      properties: {text: SELECT, role: primary-color, visible: false}
+      name: button_update_tdslicer
+      properties: {enabled: false, role: primary-color, text: Update}
       type: Button
+    - event_bindings: {click: button_select_itk_click}
       layout_properties: {grid_position: 'EFMDOX,UCZHOG'}
-      event_bindings: {click: button_select_itk_click}
-    - name: button_select_tdslicer
-      properties: {text: Select, role: primary-color, visible: false}
+      name: button_select_itk
+      properties: {role: primary-color, text: SELECT, visible: false}
       type: Button
+    - event_bindings: {click: button_select_tdslicer_click}
       layout_properties: {grid_position: 'EFMDOX,NJCTCG'}
-      event_bindings: {click: button_select_tdslicer_click}
-    - name: button_select_mdicom
-      properties: {text: SELECT, role: primary-color, visible: false}
+      name: button_select_tdslicer
+      properties: {role: primary-color, text: Select, visible: false}
       type: Button
+    - event_bindings: {click: button_select_mdicom_click}
       layout_properties: {grid_position: 'EFMDOX,IDAQQX'}
-      event_bindings: {click: button_select_mdicom_click}
+      name: button_select_mdicom
+      properties: {role: primary-color, text: SELECT, visible: false}
+      type: Button
+    layout_properties: {}
+    name: card_1
+    properties: {col_widths: '{"PXZYAJ":10,"ADMVQU":50,"TKAUHG":10,"ZBVBAY":20,"DKOCWM":35,"ELWILX":15,"EVDCZS":12}', role: card}
+    type: ColumnPanel
+is_package: true
+layout: {type: 'form:Main_Layout'}

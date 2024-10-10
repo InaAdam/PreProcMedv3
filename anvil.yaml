@@ -1,72 +1,72 @@
 allow_embedding: false
-package_name: PreProcMedv2
+correct_dependency_ids: {}
 db_schema:
-  users:
-    client: none
-    server: full
-    columns:
-    - name: email
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {order: 1, width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {order: 2, width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {order: 3, width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {order: 4, width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {order: 5, width: 200}
-      type: bool
-    - name: itk_path
-      admin_ui: {width: 200, order: 6}
-      type: string
-    - name: microdicom_path
-      admin_ui: {width: 200, order: 7}
-      type: string
-    - name: signed_up
-      admin_ui: {order: 10, width: 200}
-      type: datetime
-    - name: tdslicer_path
-      admin_ui: {width: 200, order: 9}
-      type: string
-    title: Users
   local_code:
     client: none
-    server: full
     columns:
-    - name: file_name
-      admin_ui: {width: 200, order: 0}
+    - admin_ui: {order: 0, width: 200}
+      name: file_name
       type: string
-    - name: file
-      admin_ui: {width: 200, order: 1}
+    - admin_ui: {order: 1, width: 200}
+      name: file
       type: media
-    - name: py_code
-      admin_ui: {order: 2, width: 200}
+    - admin_ui: {order: 2, width: 200}
+      name: py_code
       type: media
+    server: full
     title: local_code
-startup: {type: form, module: Home_pkg.Home}
-name: PreProcMedv3
-startup_form: null
-native_deps: null
-correct_dependency_ids: {}
-uplink_visible: true
-runtime_options:
-  version: 3
-  client_version: '3'
-  server_version: python3-full
-  server_spec: {base: python310-standard}
-  legacy_features: {class_names: true, bootstrap3: true, __dict__: true, root_container: true}
+  users:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: email
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {order: 2, width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {order: 3, width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {order: 6, width: 200}
+      name: itk_path
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: microdicom_path
+      type: string
+    - admin_ui: {order: 10, width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {order: 9, width: 200}
+      name: tdslicer_path
+      type: string
+    server: full
+    title: Users
 dependencies: []
+name: PreProcMedv3
+native_deps: null
+package_name: PreProcMedv2
+runtime_options:
+  client_version: '3'
+  legacy_features: {__dict__: true, bootstrap3: true, class_names: true, root_container: true}
+  server_spec: {base: python310-standard}
+  server_version: python3-full
+  version: 3
 services:
-- source: /runtime/services/tables.yml
-  client_config: {}
+- client_config: {}
   server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: false}
+  source: /runtime/services/tables.yml
+- client_config: {allow_signup: true, confirm_email: false, enable_automatically: true, use_email: true}
   server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+startup: {module: Home_pkg.Home, type: form}
+startup_form: null
+uplink_visible: true

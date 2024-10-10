@@ -1,69 +1,69 @@
-layout: {type: 'form:Main_Layout'}
-is_package: true
 components_by_slot:
   content:
-  - name: card_main
-    properties: {role: card, col_widths: '{"TZUNYN":5,"DZMUFC":55}'}
-    type: ColumnPanel
-    layout_properties: {}
-    components:
-    - name: label_1
+  - components:
+    - layout_properties: {grid_position: 'NLGVFJ,TPWMOK'}
+      name: label_1
       properties: {text: 'In order to use the current application please follow the steps:'}
       type: Label
-      layout_properties: {grid_position: 'NLGVFJ,TPWMOK'}
-    - name: rich_text_5
+    - components:
+      - event_bindings: {click: button_dwnld_ipynb_click}
+        layout_properties: {slot: button}
+        name: button_dwnld_ipynb
+        properties: {role: null, text: Download}
+        type: Button
+      layout_properties: {grid_position: 'HMMLIW,NYPXYX'}
+      name: rich_text_5
       properties: {content: '1. Download the app and run it to establish a connection to the server. {button}'}
       type: RichText
-      layout_properties: {grid_position: 'HMMLIW,NYPXYX'}
-      components:
-      - name: button_dwnld_ipynb
-        properties: {text: Download, role: null}
-        type: Button
-        layout_properties: {slot: button}
-        event_bindings: {click: button_dwnld_ipynb_click}
-    - name: rich_text_6
+    - layout_properties: {grid_position: 'NEIKVK,WPCIVN'}
+      name: rich_text_6
       properties: {content: '2. Download the applications that you are going to use for afterwards data processing: '}
       type: RichText
-      layout_properties: {grid_position: 'NEIKVK,WPCIVN'}
-    - name: spacer_1
+    - layout_properties: {grid_position: 'IUCYAT,TZUNYN'}
+      name: spacer_1
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'IUCYAT,TZUNYN'}
-    - name: rich_text_1
+    - components:
+      - event_bindings: {click: link_itk_click}
+        layout_properties: {slot: link}
+        name: link_itk
+        properties: {text: www.itksnap.org, underline: true, url: 'http://www.itksnap.org/pmwiki/pmwiki.php?n=Downloads.SNAP4'}
+        type: Link
+      layout_properties: {grid_position: 'IUCYAT,DZMUFC TNCDAO,IESMPG'}
+      name: rich_text_1
       properties: {content: 'a. ITK-SNAP : {link}'}
       type: RichText
-      layout_properties: {grid_position: 'IUCYAT,DZMUFC TNCDAO,IESMPG'}
-      components:
-      - name: link_itk
-        properties: {url: 'http://www.itksnap.org/pmwiki/pmwiki.php?n=Downloads.SNAP4', text: www.itksnap.org, underline: true}
+    - components:
+      - layout_properties: {slot: link}
+        name: link_mdicom
+        properties: {text: www.microdicom.com, underline: true, url: 'https://www.microdicom.com/downloads.html'}
         type: Link
-        layout_properties: {slot: link}
-        event_bindings: {click: link_itk_click}
-    - name: rich_text_2
+      layout_properties: {grid_position: 'IUCYAT,DZMUFC IBOFBM,EEGDJM'}
+      name: rich_text_2
       properties: {content: 'b. MicroDicom: {link}'}
       type: RichText
-      layout_properties: {grid_position: 'IUCYAT,DZMUFC IBOFBM,EEGDJM'}
-      components:
-      - name: link_mdicom
-        properties: {text: www.microdicom.com, url: 'https://www.microdicom.com/downloads.html', underline: true}
+    - components:
+      - layout_properties: {slot: link}
+        name: link_2
+        properties: {text: www.slicer.org, underline: true, url: 'https://download.slicer.org/'}
         type: Link
-        layout_properties: {slot: link}
-    - name: rich_text_3
+      layout_properties: {grid_position: 'IUCYAT,DZMUFC IFQXET,PQKSCR'}
+      name: rich_text_3
       properties: {content: 'c. 3D Slicer: {link}'}
       type: RichText
-      layout_properties: {grid_position: 'IUCYAT,DZMUFC IFQXET,PQKSCR'}
-      components:
-      - name: link_2
-        properties: {url: 'https://download.slicer.org/', text: www.slicer.org, underline: true}
-        type: Link
-        layout_properties: {slot: link}
-    - name: rich_text_4
-      properties: {content: '3. After installation set the paths to .exe in {button}.'}
-      type: RichText
-      layout_properties: {grid_position: 'LABBFI,PKMLMJ'}
-      components:
-      - name: link_user_profile
+    - components:
+      - event_bindings: {click: link_user_profile_click}
+        layout_properties: {slot: button}
+        name: link_user_profile
         properties: {text: user profile, underline: true}
         type: Link
-        layout_properties: {slot: button}
-        event_bindings: {click: link_user_profile_click}
+      layout_properties: {grid_position: 'LABBFI,PKMLMJ'}
+      name: rich_text_4
+      properties: {content: '3. After installation set the paths to .exe in {button}.'}
+      type: RichText
+    layout_properties: {}
+    name: card_main
+    properties: {col_widths: '{"TZUNYN":5,"DZMUFC":55}', role: card}
+    type: ColumnPanel
+is_package: true
+layout: {type: 'form:Main_Layout'}

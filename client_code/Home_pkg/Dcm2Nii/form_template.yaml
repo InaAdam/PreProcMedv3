@@ -1,42 +1,42 @@
-layout: {type: 'form:Main_Layout.Home_Layout'}
-is_package: true
 components_by_slot:
   slot_1:
-  - name: card_1
-    properties: {role: card, col_widths: '{"CIYLCU":40}'}
-    type: ColumnPanel
-    layout_properties: {}
-    components:
-    - name: label_1
-      properties: {text: Conversion --- Dicom series to Nifti, align: center, background: 'theme:Primary 700', foreground: 'theme:White', font_size: 15}
+  - components:
+    - layout_properties: {grid_position: 'LANAHE,HJFVXE'}
+      name: label_1
+      properties: {align: center, background: 'theme:Primary 700', font_size: 15, foreground: 'theme:White', text: Conversion --- Dicom series to Nifti}
       type: Label
-      layout_properties: {grid_position: 'LANAHE,HJFVXE'}
-    - name: text_box_dcm_path
+    - event_bindings: {change: text_box_dcm_path_change}
+      layout_properties: {grid_position: 'UTDNJZ,CIYLCU'}
+      name: text_box_dcm_path
       properties: {placeholder: ./dicom_series_folder}
       type: TextBox
-      layout_properties: {grid_position: 'UTDNJZ,CIYLCU'}
-      event_bindings: {change: text_box_dcm_path_change}
-    - name: button_convert
-      properties: {text: convert, role: secondary-color, visible: true}
-      type: Button
+    - event_bindings: {click: button_convert_click}
       layout_properties: {grid_position: 'NCQUQQ,RGKMOF'}
-      event_bindings: {click: button_convert_click}
-    - name: spacer_1
+      name: button_convert
+      properties: {role: secondary-color, text: convert, visible: true}
+      type: Button
+    - layout_properties: {grid_position: 'GOUBQV,KKIOVY'}
+      name: spacer_1
       properties: {height: 25.666656494140625}
       type: Spacer
-      layout_properties: {grid_position: 'GOUBQV,KKIOVY'}
-    - name: button_open_folder
-      properties: {text: Open  folder, enabled: false, visible: true, role: secondary-color}
-      type: Button
+    - event_bindings: {click: button_open_folder_click}
       layout_properties: {grid_position: 'WVIPDA,BIMDCF'}
-      event_bindings: {click: button_open_folder_click}
-    - name: button_visualize
-      properties: {text: Visualize, role: secondary-color, enabled: false}
+      name: button_open_folder
+      properties: {enabled: false, role: secondary-color, text: Open  folder, visible: true}
       type: Button
+    - event_bindings: {click: button_visualize_click}
       layout_properties: {grid_position: 'WVIPDA,IQYNFA'}
-      event_bindings: {click: button_visualize_click}
-    - name: button_back
-      properties: {text: Back, enabled: false}
+      name: button_visualize
+      properties: {enabled: false, role: secondary-color, text: Visualize}
       type: Button
+    - event_bindings: {click: button_back_click}
       layout_properties: {grid_position: 'WVIPDA,RTTCZY'}
-      event_bindings: {click: button_back_click}
+      name: button_back
+      properties: {enabled: false, text: Back}
+      type: Button
+    layout_properties: {}
+    name: card_1
+    properties: {col_widths: '{"CIYLCU":40}', role: card}
+    type: ColumnPanel
+is_package: true
+layout: {type: 'form:Main_Layout.Home_Layout'}
