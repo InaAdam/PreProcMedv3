@@ -76,7 +76,6 @@ def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type,c
       #pat_anonym_path = anonym_path+'\\'+time_now+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
       pat_anonym_path = anonym_path+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
       a = anvil.server.call('access_path',[pat_anonym_path],['create'])
-      print(a)
       if a == "not found":
         csv_data = [[time_now,pacient,"no relevant data found"]]
         anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
