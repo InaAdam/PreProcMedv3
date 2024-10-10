@@ -32,12 +32,14 @@ def get_pacient_folder(path_data):
 def anonym_dcm(dcm_serie, folder_anonim,anonim_ppl):
   extra_anonymization_rules = {}
   idx = 1
-  dcm_files = anvil.server.call('access_path',[dcm_serie],['directory_list'])
-  for dcm in dcm_files:
-    anvil.server.call('access_path',[dcm_serie+'\\'+dcm,folder_anonim],['dcm_anonim',extra_anonymization_rules])
-    anvil.server.call('access_path',[folder_anonim+'\\'+dcm,folder_anonim+'\\'+anonim_ppl+'_'+str("{:02d}".format(idx))+'.dcm'],['rename'])
-    idx=idx+1
-
+  try:
+    dcm_files = anvil.server.call('access_path',[dcm_serie],['directory_list'])
+    for dcm in dcm_files:
+      anvil.server.call('access_path',[dcm_serie+'\\'+dcm,folder_anonim],['dcm_anonim',extra_anonymization_rules])
+      anvil.server.call('access_path',[folder_anonim+'\\'+dcm,folder_anonim+'\\'+anonim_ppl+'_'+str("{:02d}".format(idx))+'.dcm'],['rename'])
+      idx=idx+1
+  except:
+    return "not found"
 @anvil.server.callable
 def anonym(origin_path,anonym_path,type,year):
   pacient_folder = get_pacient_folder(origin_path)
@@ -73,8 +75,13 @@ def multiple_anonym(pacient_list,pacient_folder,anonym_path,time_now,year,type,c
       print(f"Pacient {idx}/{len(pacient_list)}")
       #pat_anonym_path = anonym_path+'\\'+time_now+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
       pat_anonym_path = anonym_path+'\\'+type+'\\'+patient_anonym+'\\'+'dicom'
-      anvil.server.call('access_path',[pat_anonym_path],['create'])
-      anonym_dcm(dcm_serie,pat_anonym_path,patient_anonym)
-      csv_data = [[time_now,dcm_serie,pat_anonym_path]]
-      anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
-      idx = idx+1
+      a = anvil.server.call('access_path',[pat_anonym_path],['create'])
+      print(a)
+      if a == "not found":
+        csv_data = [[time_now,pacient,"no relevant data found"]]
+        anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
+      else:
+        anonym_dcm(dcm_serie,pat_anonym_path,patient_anonym)
+        csv_data = [[time_now,dcm_serie,pat_anonym_path]]
+        anvil.server.call('access_path',[csv_name],['write_csv',csv_data])
+        idx = idx+1
